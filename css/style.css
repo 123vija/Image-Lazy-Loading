@@ -1,6 +1,6 @@
 body {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto !important;
     padding: 15px;
     font-family: cursive;
 }
