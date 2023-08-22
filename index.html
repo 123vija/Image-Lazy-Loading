@@ -1,798 +1,795 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Intersection Observer</title>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Intersection Observer Learning" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
-      integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <style>
-      .image-card-wrapper::before {
-        background-color: #f5f5f5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container-lg p-3">
-    <h3 class="text-center text-uppercase my-5">Intersection Observer API</h3>
-      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/700/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+   <head>
+      <title>Intersection Observer</title>
+      <meta charset="UTF-8" />
+      <meta name="description" content="Intersection Observer Learning" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
+         integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+         />
+      <style>
+         .image-card-wrapper::before {
+         background-color: #f5f5f5;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container-lg p-3">
+         <h3 class="text-center text-uppercase my-5">Intersection Observer API</h3>
+         <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/700/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/701/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/701/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/702/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/702/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/703/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/703/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/704/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/704/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/705/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/705/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/719/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/719/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/721/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/721/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/722/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/722/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/723/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/723/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/724/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/724/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/731/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/731/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/726/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/726/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/727/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/727/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/728/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/728/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/729/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/729/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/730/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/730/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/880/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/880/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/881/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/881/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/882/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/882/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/883/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/883/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/884/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/884/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/885/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/885/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/886/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/886/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/894/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/894/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/888/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/888/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/889/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/889/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/890/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/890/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-        </div>
-
-
-
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/200/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/200/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/201/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/201/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/202/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/203/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/202/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/204/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/206/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/203/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/500/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/208/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/204/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/903/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/220/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/206/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/900/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+            <div class="col">
+               <div class="card">
+                  <div class="ratio ratio-1x1 image-card-wrapper">
+                     <img
+                        data-src="https://picsum.photos/id/901/300/300"
+                        class="card-img-top lazy-load"
+                        alt="..."
+                        />
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title">Card title</h5>
+                     <p class="card-text">
+                        This is a longer card with supporting text below as a natural
+                        lead-in to additional content. This content is a little bit
+                        longer.
+                     </p>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/500/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/208/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/903/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="ratio ratio-1x1 image-card-wrapper">
-              <img
-                data-src="https://picsum.photos/id/220/300/300"
-                class="card-img-top lazy-load"
-                alt="..."
-              />
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/900/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="ratio ratio-1x1 image-card-wrapper">
-                <img
-                  data-src="https://picsum.photos/id/901/300/300"
-                  class="card-img-top lazy-load"
-                  alt="..."
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-          </div>
+         </div>
       </div>
-    </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"
-      integrity="sha512-ToL6UYWePxjhDQKNioSi4AyJ5KkRxY+F1+Fi7Jgh0Hp5Kk2/s8FD7zusJDdonfe5B00Qw+B8taXxF6CFLnqNCw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="js/index.js"></script>
-  </body>
+      <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"
+         integrity="sha512-ToL6UYWePxjhDQKNioSi4AyJ5KkRxY+F1+Fi7Jgh0Hp5Kk2/s8FD7zusJDdonfe5B00Qw+B8taXxF6CFLnqNCw=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+         ></script>
+      <script src="js/index.js"></script>
+   </body>
 </html>
